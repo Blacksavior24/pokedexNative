@@ -6,21 +6,29 @@ import {
   Button,
   Keyboard,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import {user, userDetails} from "../../utils/useDB"
+//import {user, userDetails} from "../../utils/userDB";
+import {user, userDetails} from "../../utils/userDB";
+import useAuth from "../../hooks/useAuth";
 
 export default function LoginForm() {
+    const [error, setError] = useState('');
+    const {login} = useAuth();
+    //console.log(useAuth());
+
     const formik = useFormik({
         initialValues: initialValues(),
         validationSchema: Yup.object(validationSchema()),
         validateOnChange: false,
         onSubmit: (dataValue)=>{
+            setError('')
             const {username, password} = dataValue;
             if (username !== user.username || password !== user.password){
-                console.log('El usuario o la contra no es correcta');
+                setError('El usuario o la contra no es correcta')
             }else{
+                login(userDetails)
                 console.log('login correcto');
                 console.log(userDetails);
             }
@@ -51,7 +59,7 @@ export default function LoginForm() {
       </View>
       <Text style={styles.error}>{formik.errors.username}</Text>
       <Text style={styles.error}>{formik.errors.password}</Text>
-      
+      <Text style={styles.error} > {error} </Text>
     </View>
   );
 }
