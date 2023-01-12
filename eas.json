@@ -3,6 +3,12 @@
     "version": ">= 3.3.2"
   },
   "build": {
+    "local":{
+      "android":{
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"
