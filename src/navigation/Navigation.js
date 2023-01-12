@@ -6,15 +6,16 @@ import FavoriteScreen from '../screens/Favorite';
 import Account from '../screens/Account';
 import Iconx from 'react-native-vector-icons/MaterialCommunityIcons'
 import PokedexNavigation from './PokedexNavigation';
+import FavoriteNavigation from './FavoriteNavigation'
 
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName='Pokedex'>
         <Tab.Screen 
             name='Favorite' 
-            component={FavoriteScreen} 
+            component={FavoriteNavigation} 
             options={{
                 tabBartLabel: 'Favoritos',
                 tabBarIcon: ({color, size})=> 

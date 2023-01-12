@@ -7,11 +7,9 @@ export default function PokemonList(props) {
   const {pokemons, loadPokemons, isNext} = props;
 
   const loadMore = () =>{
-    console.log("cargando más pokemons");
     loadPokemons();
   };
 
-  console.log(Platform.OS);
 
   return (
     <FlatList

@@ -12,7 +12,6 @@ export default function Stats(props) {
           width: `${number}%`,
         }
     }
-    console.log(stats);
     return (
    <View style={styles.content}>
       <Text style={styles.title}>Base Stats</Text>

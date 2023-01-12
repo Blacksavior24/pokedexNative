@@ -1,10 +1,24 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import PokemonScreen from '../screens/Pokemon'
+import FavoriteScreen from '../screens/Favorite'
 
-export default function FavoriteNavigation() {
+const Stack = createNativeStackNavigator()
+
+export default function PokedexNavigation() {
   return (
-    <View>
-      <Text>FavoriteNavigation</Text>
-    </View>
+    <Stack.Navigator>
+        <Stack.Screen 
+          name="Favorite Screen" 
+          component={FavoriteScreen}
+          options={{title: "", headerTransparent: true}}  
+        />
+        <Stack.Screen 
+          name="Pokemon Screen" 
+          component={PokemonScreen} 
+          options={{title: "", headerTransparent: true}}
+          />
+      
+    </Stack.Navigator>
   )
 }
