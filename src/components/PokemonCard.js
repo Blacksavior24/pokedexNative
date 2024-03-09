@@ -29,7 +29,8 @@ export default function PokemonCard(props) {
                         <View style={bgStyles}>
                             <Text style={styles.number}>#{`${pokemon.id}`.padStart(3,0)}</Text>
                             <Text style={styles.name}>{capitalize(pokemon.name)}</Text>
-                            <Image source={{ uri: pokemon.image }} style={styles.image} />
+                            <Text style={styles.image}> {pokemon.name} </Text>
+                            {/* <Image source={{ uri: pokemon.image }} style={styles.image} /> */}
                         </View>
                     </View>
                 </View>

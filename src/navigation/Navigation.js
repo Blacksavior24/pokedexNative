@@ -30,7 +30,7 @@ export default function Navigation() {
             name='Pokedex' 
             component={PokedexNavigation} 
             options={{
-                tabBarLabel: 'Pokemon',
+                tabBarLabel: 'Data',
                 tabBarIcon: ({color,size}) => (
                     <Iconx name='pokemon-go' color={color} size={size} />
                 ),

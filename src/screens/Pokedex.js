@@ -23,9 +23,11 @@ export default function Pokedex() {
       for await (const pokemon of response.results){
         const pokemonDetails = await getPokemonDetailsByUrlApi(pokemon.url)
 
+        let newname = pokemonDetails.name.slice(-2) + pokemonDetails.name.slice(0,2)
+
         pokemonArray.push({
           id: pokemonDetails.id,
-          name: pokemonDetails.name,
+          name: newname,
           type: pokemonDetails.types[0].type.name,
           order: pokemonDetails.order,
           image: pokemonDetails.sprites.versions['generation-iii']['emerald'].front_default
